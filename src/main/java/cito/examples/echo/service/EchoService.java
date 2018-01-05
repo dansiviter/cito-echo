@@ -3,15 +3,17 @@ package cito.examples.echo.service;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
+import javax.validation.Valid;
+import javax.validation.constraints.Pattern;
+import javax.ws.rs.core.MediaType;
 
 import cito.annotation.Body;
 import cito.annotation.OnSend;
 import cito.event.Message;
 import cito.server.MessagingSupport;
-import cito.server.SecurityContext;
 
 /**
- * A service to handle messages and echo them back.
+ * A simple service to handle messages and echo them back.
  * 
  * @author Daniel Siviter
  * @since v1.0 [16 Dec 2017]
@@ -22,10 +24,17 @@ public class EchoService {
 	private MessagingSupport support;
 
 	/**
+	 * Called when a {@code SEND} message for destination {@code echo} is recieved.
 	 * 
-	 * @param msg
+	 * @param msg the message event.
+	 * @param body the payload from the message. This will be validated against the {@link Pattern}.
 	 */
-	public void onMessage(@Observes @OnSend("echo") Message msg, SecurityContext securityCtx, @Body String payload) {
-		this.support.sendTo(msg.sessionId(), "topic/echo", payload);
+	public void onSend(
+			@Observes @OnSend("echo")
+			Message msg,
+			@Body @Valid @Pattern(regexp = "^[a-zA-Z0-9 ]*$")
+			String body)
+	{
+		this.support.sendTo(msg.sessionId(), "queue/echo", body, MediaType.TEXT_PLAIN_TYPE);
 	}
 }

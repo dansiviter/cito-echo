@@ -5,8 +5,3 @@
 .Flex {
   flex: 1;
 }
-
-.Container: {
-  flexGrow: 1;
-  marginTop: 30;
-}
