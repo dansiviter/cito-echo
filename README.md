@@ -10,4 +10,4 @@ Very simple webapp that uses [Citō](http://cito.io) and to echo responses back 
 
 That's it!
 
-![Echo UI](images/screenshot.png | width=300)
+<img src="images/screenshot.png" alt="Echo UI" width="550"/>
