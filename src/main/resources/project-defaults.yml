@@ -1,0 +1,9 @@
+swarm:
+  logging:
+    root-logger:
+      level: INFO
+  undertow:
+    servlet-containers:
+      default:
+        websockets-setting:
+          per-message-deflate: true
