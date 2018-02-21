@@ -3,9 +3,7 @@ import './App.css';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
-import List from 'material-ui/List';
 import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
 import Warning from 'material-ui-icons/Warning';
 import Ok from 'material-ui-icons/Done';
 import Grid from 'material-ui/Grid';
@@ -105,6 +103,9 @@ class App extends Component {
 	}
 
 	appendText = (str) => {
+
+		// implement de-bounce here to aid performance testing
+
 		let text = this.state.text;
 		if (text) {
 			text += '\n';
