@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 
-		<wildfly.swarm.version>2018.3.3</wildfly.swarm.version>
+		<wildfly.swarm.version>2018.4.1</wildfly.swarm.version>
 	</properties>
 
 	<dependencyManagement>
@@ -60,7 +60,7 @@
 			<artifactId>artemis-jms-server</artifactId>
 			<version>1.5.5</version>
 			<scope>provided</scope>
-		</dependency>	
+		</dependency>
 	</dependencies>
 
 
