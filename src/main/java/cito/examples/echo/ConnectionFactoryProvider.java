@@ -15,7 +15,6 @@
  */
 package cito.examples.echo;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
 import javax.jms.ConnectionFactory;
@@ -32,12 +31,11 @@ import org.apache.activemq.artemis.core.remoting.impl.invm.InVMConnectorFactory;
  * @since v1.0 [14 Mar 2018]
  */
 @ApplicationScoped
-public class JmsProvider {
-	@Produces
-	private ConnectionFactory connectionFactory;
-
-	@PostConstruct
-	public void init() {
-		this.connectionFactory = ActiveMQJMSClient.createConnectionFactoryWithoutHA(JMSFactoryType.XA_CF, new TransportConfiguration(InVMConnectorFactory.class.getName()));
+public class ConnectionFactoryProvider {
+	@Produces @ApplicationScoped
+	public ConnectionFactory connectionFactory() {
+		return ActiveMQJMSClient.createConnectionFactoryWithoutHA(
+				JMSFactoryType.XA_CF,
+				new TransportConfiguration(InVMConnectorFactory.class.getName()));
 	}
 }

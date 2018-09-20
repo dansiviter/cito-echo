@@ -13,15 +13,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 
-		<wildfly.swarm.version>2018.4.1</wildfly.swarm.version>
+		<thorntail.vesion>2.2.0.Final</thorntail.vesion>
 	</properties>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.wildfly.swarm</groupId>
+				<groupId>io.thorntail</groupId>
 				<artifactId>bom-all</artifactId>
-				<version>${wildfly.swarm.version}</version>
+				<version>${thorntail.vesion}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -38,15 +38,15 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
+			<groupId>io.thorntail</groupId>
 			<artifactId>jaxrs</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
+			<groupId>io.thorntail</groupId>
 			<artifactId>cdi</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.wildfly.swarm</groupId>
+			<groupId>io.thorntail</groupId>
 			<artifactId>messaging</artifactId>
 		</dependency>
 
@@ -61,20 +61,27 @@
 			<version>1.5.5</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>artemis-stomp-protocol</artifactId>
+			<version>1.5.5</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.wildfly.swarm</groupId>
-				<artifactId>wildfly-swarm-plugin</artifactId>
-				<version>${wildfly.swarm.version}</version>
+				<groupId>io.thorntail</groupId>
+				<artifactId>thorntail-maven-plugin</artifactId>
+				<version>${thorntail.vesion}</version>
 				<executions>
 					<execution>
 						<goals>
 							<goal>package</goal>
 						</goals>
+						<phase>package</phase>
 					</execution>
 				</executions>
 			</plugin>

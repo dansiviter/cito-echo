@@ -7,3 +7,9 @@ swarm:
       default:
         websockets-setting:
           per-message-deflate: true
+  messaging-activemq:
+    servers:
+      default:
+        security-enabled: false
+        jms-queues:
+          echo: {}
