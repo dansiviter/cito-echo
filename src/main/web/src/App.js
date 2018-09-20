@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import { withStyles } from 'material-ui/styles';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
-import Warning from 'material-ui-icons/Warning';
-import Ok from 'material-ui-icons/Done';
-import Grid from 'material-ui/Grid';
-import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
-import Button from 'material-ui/Button';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import WarningIcon from '@material-ui/icons/Warning';
+import DoneIcon from '@material-ui/icons/Done';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 import WebStomp from 'webstomp-client';
 
 const styles = theme => ({
@@ -129,9 +129,9 @@ class App extends Component {
 							<Button raised onClick={ this.startStomp }>
 								{ this.state.connected ? 'Connected' : 'Disconnected' }
 								{ this.state.connected ? (
-										<Ok className={ classes.rightLeft } />
+										<DoneIcon className={ classes.rightLeft } />
 								) : (
-										<Warning className={ classes.rightLeft } />
+										<WarningIcon className={ classes.rightLeft } />
 								)}
 							</Button>
 						</Toolbar>
