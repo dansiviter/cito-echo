@@ -77,7 +77,8 @@ class App extends Component {
 		});
 		
 		if (e instanceof CloseEvent) {
-			this.appendText('CONNECTION CLOSED: ' + e.reason);
+			var reason = e.reason == null || e.reason == '' ? 'Unknown' : e.reason;
+			this.appendText('CONNECTION CLOSED: ' + reason + ' (code:' + e.code + ')');
 			return;
 		}
 
